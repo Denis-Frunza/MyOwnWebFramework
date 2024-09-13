@@ -26,6 +26,14 @@ class BooksResource:
     def post(self, req, resp):
         resp.text = "Endpoint to create a book"
 
+@app.route("/template")
+def template_handler(req, resp):
+    resp.body = app.template(
+        "index.html",
+        context={"name": "Jumbo", "title": "Best Framework"}
+    ).encode()
+
+
 def handler(req, resp):
     resp.text = "sample"
 
